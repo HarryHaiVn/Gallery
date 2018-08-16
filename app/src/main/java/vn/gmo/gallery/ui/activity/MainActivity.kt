@@ -2,39 +2,30 @@ package vn.gmo.gallery.ui.activity
 
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
 import vn.gmo.gallery.R
 import vn.gmo.gallery.databinding.ActivityMainBinding
 import vn.gmo.gallery.ui.base.BaseActivity
-import vn.gmo.gallery.ui.fragment.HomeFragment
-import vn.gmo.gallery.ui.fragment.InfoFragment
-import vn.gmo.gallery.ui.fragment.ProfileFragment
-import vn.gmo.gallery.utils.ext.replaceFragment
-import vn.gmo.gallery.utils.ext.setFragment
 
-class MainActivity : BaseActivity<ActivityMainBinding>(), BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override val layoutId: Int
         get() = R.layout.activity_main
 
     override fun initView() {
-        setSupportActionBar(toolbar)
+//        setSupportActionBar(toolbar)
     }
 
     override fun initData() {
-        setFragment(R.id.container, ::HomeFragment)
-        viewDataBinding!!.bottomNavigationView.setOnNavigationItemSelectedListener(this)
+        setupNavigation()
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            viewDataBinding!!.bottomNavigationView.selectedItemId -> return false
-            R.id.action_home -> replaceFragment(R.id.container, ::HomeFragment)
-            R.id.action_info -> replaceFragment(R.id.container, ::InfoFragment)
-            R.id.action_profile -> replaceFragment(R.id.container, ::ProfileFragment)
-        }
-        return true
+    private fun setupNavigation() {
+        val navController = findNavController(R.id.mainNavigationFragment)
+//        setupActionBarWithNavController(this, navController)
+        NavigationUI.setupWithNavController(bottomNavigationView, navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,9 +35,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), BottomNavigationView.O
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item!!.itemId) {
-//            R.id.action_settings -> toast("Click action settings")
-//            R.id.action_search -> toast("Click action search")
         }
         return false
     }
+
+    override fun onSupportNavigateUp() =
+            findNavController(R.id.mainNavigationFragment).navigateUp()
 }
