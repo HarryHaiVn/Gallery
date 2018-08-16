@@ -15,6 +15,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.diffplug.gradle.spotless" version "3.13.0"
+}
+
 allprojects {
     repositories {
         google()
@@ -22,9 +26,13 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+spotless {
+    kotlin {
+        target "**/*.kt"
+        ktlint("0.24.0")
+    }
 }
+
 ext {
     // Sdk and tools
     compileSdkVersion = 28

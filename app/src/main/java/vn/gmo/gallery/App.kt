@@ -2,7 +2,8 @@ package vn.gmo.gallery
 
 import android.content.Context
 import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import dagger.android.support.DaggerApplication
+import vn.gmo.gallery.di.compoment.DaggerAppComponent
 import vn.gmo.gallery.di.module.DatabaseModule
 
 class App : DaggerApplication() {

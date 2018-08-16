@@ -8,7 +8,6 @@ import vn.gmo.gallery.App
 import vn.gmo.gallery.di.builder.ActivityBuilder
 import vn.gmo.gallery.di.module.AppModule
 import vn.gmo.gallery.di.module.DatabaseModule
-import vn.gmo.gallery.utils.GlideModule
 import javax.inject.Singleton
 
 @Singleton
@@ -32,5 +31,5 @@ interface AppComponent : AndroidInjector<App> {
 
     override fun inject(app: App)
 
-    fun inject(glideModule: GlideModule)
+//    fun inject(glideModule: GlideModule)
 }
