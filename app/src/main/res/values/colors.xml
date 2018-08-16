@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- White Black-->
+    <color name="white">#FFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="black_12">#1F000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="night_rider">#333333</color>
+    <color name="nero">#222222</color>
+    <color name="nero_40">#22222222</color>
+
+    <color name="matterhorn">#555555</color>
+    <color name="tin">#7F7F7F</color>
+    <color name="tin_20">#337F7F7F</color>
+    <color name="tin_30">#4D7F7F7F</color>
+    <color name="tin_50">#807F7F7F</color>
+    <color name="whisper">#E5E5E5</color>
+
+    <!-- Blue -->
+    <color name="neon_blue">#6447FF</color>
+    <color name="malibu">#55ACEE</color>
+    <color name="mariner">#3B5998</color>
+
+    <!-- Red -->
+    <color name="burnt_orange">#FB7442</color>
+
+</resources>
