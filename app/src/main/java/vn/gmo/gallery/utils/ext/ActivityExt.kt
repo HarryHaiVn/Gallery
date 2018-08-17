@@ -1,8 +1,8 @@
 package vn.gmo.gallery.utils.ext
 
-import androidx.annotation.IdRes
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
+import android.support.annotation.IdRes
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 
 /**
  * Created by Wasabeef on 2017/10/20.

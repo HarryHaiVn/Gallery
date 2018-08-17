@@ -3,11 +3,11 @@ package vn.gmo.gallery.utils
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import android.support.annotation.RequiresApi
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentTransaction
 import vn.gmo.gallery.R
 
 import vn.gmo.gallery.ui.base.BaseActivity

@@ -1,10 +1,10 @@
 package vn.gmo.gallery.ui.base
 
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Bundle
-import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.support.annotation.LayoutRes
+import android.support.v7.app.AppCompatActivity
 
 abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
     var viewDataBinding: T? = null

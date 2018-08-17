@@ -1,6 +1,6 @@
 package vn.gmo.gallery.di.module
 
-import androidx.room.Room
+import android.arch.persistence.room.Room
 import dagger.Module
 import dagger.Provides
 import vn.gmo.gallery.App
