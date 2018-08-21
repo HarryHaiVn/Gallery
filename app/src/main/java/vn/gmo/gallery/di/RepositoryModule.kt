@@ -1,4 +1,4 @@
-package vn.gmo.gallery.di.module
+package vn.gmo.gallery.di
 
 import dagger.Module
 

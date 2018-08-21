@@ -5,9 +5,10 @@ import android.arch.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import vn.gmo.gallery.di.RepositoryModule
 import vn.gmo.gallery.di.ViewModelFactory
 import vn.gmo.gallery.di.ViewModelKey
-import vn.gmo.gallery.ui.SplashViewModel
+import vn.gmo.gallery.ui.splash.SplashViewModel
 
 @Module(includes = [RepositoryModule::class])
 interface ViewModelModule {
@@ -17,5 +18,5 @@ interface ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(SplashViewModel::class)
-    fun bindHomeViewModel(viewModel: SplashViewModel): ViewModel
+    fun bindMainViewModel(viewModel: SplashViewModel): ViewModel
 }

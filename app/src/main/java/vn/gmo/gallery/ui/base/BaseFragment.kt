@@ -1,5 +1,6 @@
 package vn.gmo.gallery.ui.base
 
+import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
@@ -9,19 +10,48 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import dagger.android.support.AndroidSupportInjection
 
-abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
+
     private var viewDataBinding: T? = null
-
+    private lateinit var mViewModel: V
     private lateinit var rootView: View
-    private lateinit var mActivity: BaseActivity<*>
+    private var mActivity: BaseActivity<*, *>? = null
 
+    /**
+     * @return layout resource id
+     */
     @get:LayoutRes
     protected abstract val layoutId: Int
 
+    /**
+     * Override for set binding variable
+     *
+     * @return variable id
+     */
+    abstract fun getBindingVariable(): Int
+
+    /**
+     * Override for set view model
+     *
+     * @return view model instance
+     */
+    abstract fun getViewModel(): V
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is BaseActivity<*, *>) {
+            this.mActivity = context
+            context.onFragmentAttached()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        performDependencyInjection()
         super.onCreate(savedInstanceState)
-        mActivity = (activity as BaseActivity<*>?)!!
+        mViewModel = getViewModel()
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -33,6 +63,10 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
         initView(rootView)
         initData()
         return rootView
+    }
+
+    private fun performDependencyInjection() {
+        AndroidSupportInjection.inject(this)
     }
 
     private fun performDataBinding(inflater: LayoutInflater, container: ViewGroup?): ViewDataBinding? {
@@ -55,4 +89,15 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
         }
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        mActivity?.hideKeyboard()
+    }
+
+    interface Callback {
+
+        fun onFragmentAttached()
+
+        fun onFragmentDetached(tag: String)
+    }
 }

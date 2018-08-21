@@ -105,16 +105,16 @@ object FragmentUtil {
         fragmentTransaction.commit()
     }
 
-    fun getCurrentFragment(activity: BaseActivity<*>): BaseFragment<*>? {
-        @SuppressLint("RestrictedApi")
-        val fragments = activity.supportFragmentManager.fragments
-        for (i in fragments.indices.reversed()) {
-            val fragment = fragments[i]
-            if (fragment != null && fragment.isVisible)
-                if (fragment is BaseFragment<*>) {
-                    return fragment
-                }
-        }
-        return null
-    }
+//    fun getCurrentFragment(activity: BaseActivity<*>): BaseFragment<*>? {
+//        @SuppressLint("RestrictedApi")
+//        val fragments = activity.supportFragmentManager.fragments
+//        for (i in fragments.indices.reversed()) {
+//            val fragment = fragments[i]
+//            if (fragment != null && fragment.isVisible)
+//                if (fragment is BaseFragment<*>) {
+//                    return fragment
+//                }
+//        }
+//        return null
+//    }
 }
