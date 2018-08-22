@@ -1,42 +1,22 @@
 package vn.gmo.gallery.ui.splash
 
-import android.annotation.SuppressLint
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import vn.gmo.gallery.BR
+import android.content.Intent
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import vn.gmo.gallery.R
-import vn.gmo.gallery.databinding.ActivitySplashBinding
-import vn.gmo.gallery.ui.base.BaseActivity
-import javax.inject.Inject
+import vn.gmo.gallery.ui.main.MainActivity
+import java.util.*
+import kotlin.concurrent.schedule
 
 
-class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    val splashViewModel: SplashViewModel by lazy {
-        ViewModelProviders.of(this, viewModelFactory).get(SplashViewModel::class.java)
-    }
-    override val layoutId: Int
-        @SuppressLint("ResourceType")
-        get() = R.layout.activity_splash
-
-    override fun initView() {
-//        val intent = Intent(this, MainActivity::class.java)
-//        Timer().schedule(1000) {
-//            startActivity(intent)
-//            finish()
-//        }
-    }
-
-    override fun getViewModel(): SplashViewModel {
-        return splashViewModel
-    }
-
-    override fun getBindingVariable(): Int {
-        return BR.viewModel
-    }
-
-    override fun initData() {
+class SplashActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash)
+        val intent = Intent(this, MainActivity::class.java)
+        Timer().schedule(1000) {
+            startActivity(intent)
+            finish()
+        }
     }
 }

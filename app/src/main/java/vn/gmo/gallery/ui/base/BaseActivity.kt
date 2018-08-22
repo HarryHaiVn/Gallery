@@ -1,19 +1,28 @@
 package vn.gmo.gallery.ui.base
 
+import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProvider
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.LayoutRes
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
 import android.view.inputmethod.InputMethodManager
-import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.DaggerAppCompatActivity
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
 
-abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatActivity(), BaseFragment.Callback {
+abstract class BaseActivity<T : ViewDataBinding, V : ViewModel> : DaggerAppCompatActivity(), BaseFragment.Callback, HasSupportFragmentInjector {
 
-
-    private lateinit var mViewDataBinding: T
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var mViewDataBinding: T
     private var mViewModel: V? = null
     /**
      * @return layout resource id
@@ -36,15 +45,10 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
     abstract fun getViewModel(): V
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        performDependencyInjection()
         super.onCreate(savedInstanceState)
         performDataBinding()
         initView()
         initData()
-    }
-
-    fun performDependencyInjection() {
-        AndroidInjection.inject(this)
     }
 
     abstract fun initView()
@@ -53,7 +57,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
 
     private fun performDataBinding() {
         mViewDataBinding = DataBindingUtil.setContentView(this, layoutId)
-        this.mViewModel = if (mViewModel == null) getViewModel() else mViewModel
+        mViewModel = getViewModel()
         mViewDataBinding.setVariable(getBindingVariable(), mViewModel)
         mViewDataBinding.executePendingBindings()
     }
@@ -62,6 +66,10 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
     }
 
     override fun onFragmentDetached(tag: String) {
+    }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return dispatchingAndroidInjector
     }
 
     override fun onDestroy() {

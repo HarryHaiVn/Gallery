@@ -4,7 +4,7 @@
     package="vn.gmo.gallery">
 
     <application
-        android:name=".App"
+        android:name=".GalleryApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity android:name=".ui.activity.MainActivity" />-->
+        <activity android:name=".ui.main.MainActivity" />
     </application>
 
 </manifest>

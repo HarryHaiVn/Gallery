@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/action_picture"
         android:icon="@drawable/ic_action_picture"
         android:title="@string/picture" />
     <item
-        android:id="@+id/action_info"
+        android:id="@+id/action_video"
         android:icon="@drawable/ic_action_video"
         android:title="@string/video" />
     <item
+        android:id="@+id/action_cloud"
+        android:icon="@drawable/ic_action_cloud"
+        android:title="@string/cloud" />
+    <item
         android:id="@+id/action_profile"
-        android:icon="@drawable/ic_action_person"
+        android:icon="@drawable/ic_action_profile"
         android:title="@string/profile" />
 </menu>

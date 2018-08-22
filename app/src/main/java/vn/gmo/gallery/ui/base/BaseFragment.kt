@@ -1,5 +1,7 @@
 package vn.gmo.gallery.ui.base
 
+import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProvider
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
@@ -10,10 +12,13 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import dagger.android.support.AndroidSupportInjection
+import vn.gmo.gallery.di.Injectable
+import javax.inject.Inject
 
-abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding, V : ViewModel> : Fragment(), Injectable {
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
     private var viewDataBinding: T? = null
     private lateinit var mViewModel: V
     private lateinit var rootView: View
@@ -47,13 +52,6 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        performDependencyInjection()
-        super.onCreate(savedInstanceState)
-        mViewModel = getViewModel()
-
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         rootView = performDataBinding(inflater, container)!!.root
@@ -65,12 +63,9 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
         return rootView
     }
 
-    private fun performDependencyInjection() {
-        AndroidSupportInjection.inject(this)
-    }
-
     private fun performDataBinding(inflater: LayoutInflater, container: ViewGroup?): ViewDataBinding? {
         viewDataBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+        mViewModel = getViewModel()
         return viewDataBinding
     }
 

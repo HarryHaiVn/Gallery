@@ -2,11 +2,11 @@ package vn.gmo.gallery.di.builder
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import vn.gmo.gallery.ui.splash.SplashActivity
-import vn.gmo.gallery.di.module.SplashActivityModule
+import vn.gmo.gallery.di.module.FragmentBuildersModule
+import vn.gmo.gallery.ui.main.MainActivity
 
 @Module
-internal abstract class ActivityBuilder {
-    @ContributesAndroidInjector(modules = [SplashActivityModule::class])
-    internal abstract fun bindSplashActivity(): SplashActivity
+abstract class ActivityBuilder {
+    @ContributesAndroidInjector(modules = [FragmentBuildersModule::class])
+    abstract fun contributeMainActivity(): MainActivity
 }

@@ -3,6 +3,7 @@
     <!-- Bottom Navigation -->
     <string name="picture">Picture</string>
     <string name="video">Video</string>
+    <string name="cloud">Cloud</string>
     <string name="profile">Profile</string>
     <string name="action_settings">Settings</string>
     <string name="search">Search</string>

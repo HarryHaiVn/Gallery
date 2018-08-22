@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:galleryApp="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="vn.gmo.gallery.ui.main.MainViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -17,11 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavMain"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            galleryApp:layout_constraintBottom_toTopOf="@+id/bottomNavMain"
+            galleryApp:layout_constraintHorizontal_bias="0.0"
+            galleryApp:layout_constraintLeft_toLeftOf="parent"
+            galleryApp:layout_constraintRight_toRightOf="parent"
+            galleryApp:layout_constraintTop_toTopOf="parent">
 
             <android.support.design.widget.AppBarLayout
                 android:id="@+id/appbar"
@@ -33,8 +36,8 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:popupTheme="@style/AppTheme"
-                    app:titleTextAppearance="@style/Toolbar.TitleText" />
+                    galleryApp:popupTheme="@style/AppTheme"
+                    galleryApp:titleTextAppearance="@style/Toolbar.TitleText" />
 
             </android.support.design.widget.AppBarLayout>
 
@@ -50,11 +53,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
-            app:elevation="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_main" />
+            galleryApp:elevation="16dp"
+            galleryApp:layout_constraintBottom_toBottomOf="parent"
+            galleryApp:layout_constraintEnd_toEndOf="parent"
+            galleryApp:layout_constraintStart_toStartOf="parent"
+            galleryApp:menu="@menu/bottom_nav_main" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
