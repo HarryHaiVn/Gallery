@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="vn.gmo.gallery.ui.picture.PictureFragment"
+        android:label="@string/picture"
+        tools:layout="@layout/fragment_picture">
+        <argument
+            android:name="title"
+            android:defaultValue="@string/picture" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="vn.gmo.gallery.ui.video.VideoFragment"
+        android:label="@string/video"
+        tools:layout="@layout/fragment_video">
+        <argument
+            android:name="title"
+            android:defaultValue="@string/video" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="vn.gmo.gallery.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="title"
+            android:defaultValue="@string/profile" />
+    </fragment>
+</navigation>

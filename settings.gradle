@@ -1,1 +1,1 @@
-include ':app', ':constraint'
+include ':gallery'
