@@ -10,7 +10,7 @@
             type="vn.gmo.gallery.ui.main.MainViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
@@ -26,20 +26,20 @@
             galleryApp:layout_constraintRight_toRightOf="parent"
             galleryApp:layout_constraintTop_toTopOf="parent">
 
-            <android.support.design.widget.AppBarLayout
+            <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/appbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme">
 
-                <android.support.v7.widget.Toolbar
+                <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     galleryApp:popupTheme="@style/AppTheme"
                     galleryApp:titleTextAppearance="@style/Toolbar.TitleText" />
 
-            </android.support.design.widget.AppBarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
 
             <FrameLayout
                 android:id="@+id/container"
@@ -48,7 +48,7 @@
 
         </LinearLayout>
 
-        <android.support.design.widget.BottomNavigationView
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,5 +59,5 @@
             galleryApp:layout_constraintStart_toStartOf="parent"
             galleryApp:menu="@menu/bottom_nav_main" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

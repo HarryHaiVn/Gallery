@@ -1,8 +1,8 @@
 package vn.gmo.gallery.ui.picture
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.ViewModelProviders
 import vn.gmo.gallery.BR
 import vn.gmo.gallery.R
 import vn.gmo.gallery.databinding.FragmentPictureBinding

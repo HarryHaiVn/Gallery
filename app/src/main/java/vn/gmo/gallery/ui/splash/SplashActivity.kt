@@ -2,7 +2,7 @@ package vn.gmo.gallery.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import vn.gmo.gallery.R
 import vn.gmo.gallery.ui.main.MainActivity
 import java.util.*

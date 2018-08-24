@@ -4,11 +4,8 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.Context.ACTIVITY_SERVICE
 import android.content.pm.ApplicationInfo.FLAG_LARGE_HEAP
-import android.support.annotation.FloatRange
+import androidx.annotation.FloatRange
 
-/**
- * Created by Wasabeef on 2017/10/16.
- */
 object Memory {
 
     /**

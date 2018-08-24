@@ -10,7 +10,7 @@
             type="vn.gmo.gallery.ui.video.VideoViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.video.VideoFragment">
@@ -27,5 +27,5 @@
             galleryApp:layout_constraintEnd_toEndOf="parent"
             galleryApp:layout_constraintStart_toStartOf="parent"
             galleryApp:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

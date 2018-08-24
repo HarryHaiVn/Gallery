@@ -1,9 +1,9 @@
 package vn.gmo.gallery.room
 
-import android.arch.persistence.room.ColumnInfo
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
 import android.os.Build
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import vn.gmo.gallery.BuildConfig
 
 @Entity(tableName = "photo")

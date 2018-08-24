@@ -1,10 +1,10 @@
 package vn.gmo.gallery.ui.main
 
-import android.arch.lifecycle.ViewModelProviders
-import android.support.design.widget.BottomNavigationView
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.widget.toast
+import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import vn.gmo.gallery.BR
 import vn.gmo.gallery.R
@@ -59,8 +59,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), BottomN
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item!!.itemId) {
-            R.id.action_settings -> toast("Click action settings")
-            R.id.action_search -> toast("Click action search")
+//            R.id.action_settings -> toast("Click action settings")
+//            R.id.action_search -> toast("Click action search")
         }
         return false
     }
